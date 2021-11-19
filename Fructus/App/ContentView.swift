@@ -23,7 +23,7 @@ struct ContentView: View {
                         .padding(.vertical, 4)
                     }
                 }
-                StartButtonView(status: true, text: "Back", StrokeCo: Color.black)
+                StartButtonView(status: true, text: "رجوع", StrokeCo: Color.white)
             } // List
             .navigationTitle("Fruits")
             .navigationBarItems(
@@ -35,7 +35,7 @@ struct ContentView: View {
                     Image(systemName: "slider.horizontal.3")
             } //:ANOTHER CODE BUTTON
                 .sheet(isPresented: $isShowingSettings) {
-                    SettingsView(fruit: fruitsData[1])
+                    SettingsView()
                 }
             ) //:NAVIGATION ITEM
         } //:NAVIGATION

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    var fruit: Fruit
+
     
     @Environment(\.presentationMode) var presentationMode
     @AppStorage("isOnboarding") var isOnboarding: Bool = false // to save value that show us if we are in the home screen or not (Onboarding)
@@ -121,7 +121,7 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(fruit: fruitsData[1])
+        SettingsView()
             .preferredColorScheme(.dark)
     }
 }

@@ -18,7 +18,7 @@ struct StartButtonView: View {
     var StrokeCol:Color?
     
     
-    init(status: Bool? = false, ImageSysName:String? = "chevron.forward.square", text:String? = "Click here", StrokeCo:Color? = Color.secondary){
+    init(status: Bool? = false, ImageSysName:String? = "chevron.forward.square", text:String? = "انقر هنا للمزيد", StrokeCo:Color? = Color.white){
         mBool = status
         textBtn = text
         ImageName = ImageSysName
@@ -31,7 +31,7 @@ struct StartButtonView: View {
             isOnboarding = mBool  // will change to false
         }) {
             HStack (spacing: 8) {
-                Text(textBtn ?? "Click Here")
+                Text(textBtn ?? "انقر هنا")
                 
                 Image(systemName: ImageName ?? "chevron.forward")
                     .imageScale(.large)
@@ -40,7 +40,7 @@ struct StartButtonView: View {
             .padding(.horizontal, 46)
             .padding(.vertical, 10)
             .background(
-                Capsule().strokeBorder(StrokeCol ?? Color.white, lineWidth: 1.25)
+                Capsule().strokeBorder(lineWidth: 1.25)
             )
         } //Button
         .accentColor(StrokeCol ?? Color.white)
