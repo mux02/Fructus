@@ -41,7 +41,7 @@ struct FruitCardView: View {
                     .frame(maxWidth:480)
                 
                 // Button: Start
-                StartButtonView(text: "انقر للمزيد") // here we put the button
+                StartButtonView(text: "Read More") // here we put the button
             } // Vstack
         } // Zstack
         .onAppear {

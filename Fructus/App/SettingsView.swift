@@ -12,6 +12,8 @@ struct SettingsView: View {
     var fruit: Fruit
     
     @Environment(\.presentationMode) var presentationMode
+    @AppStorage("isOnboarding") var isOnboarding: Bool = false // to save value that show us if we are in the home screen or not (Onboarding)
+    
     // this will help you to store value (is the user in the dark mode? or what is the time zone of the user) all these information comes from this function (Environment)
     
     // Mark: - BODY
@@ -47,17 +49,49 @@ struct SettingsView: View {
                     } //: GROUPBOX
                     
                     // Section 2
-                    
-                    
-                    // Section 3
-                    GroupBox(
-                        label: SettingsLabelView(labelText: "Application", labelImage: "apps.iphone")
+                    GroupBox (
+                    label: SettingsLabelView(labelText: "Customization", labelImage: "paintbrush")
                     ) {
                         Divider().padding(.vertical, 4)
                         
-                        SettingsRowView(name: "Developer", content: "Mohammed Almalki")
-                        SettingsRowView(name: "Developer Site", linkLabel: "Code X Team", linkDestination: "code-xteam.com")
-                        SettingsRowView(name: "Designer", content: "Ahmad Almalki")
+                        Text("if you wish, you can restart the application by toggle the switch in this box. That way its start the onboarding process and you will see the welcome screen again.")
+                            .padding(.vertical, 8)
+                            .frame(minHeight: 60)
+                            .layoutPriority(1) // to foucs the text with it's content to give them space
+                            .font(.footnote)
+                            .multilineTextAlignment(.leading)
+                        
+                        Toggle(isOn: $isOnboarding) {
+                            if isOnboarding {
+                                Text("Restarted".uppercased())
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.red)
+                                Image(systemName: "arrow.up.right")
+                            } else {
+                                Text("Restart".uppercased())
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.secondary)
+                            }
+                        }
+                        .padding()
+                        .background(
+                            Color(UIColor.tertiarySystemBackground)
+                                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                        )
+                    }
+                    
+                    // Section 3
+                    GroupBox(
+                        label:
+                        SettingsLabelView(labelText: "Application", labelImage: "apps.iphone")
+                    ) {
+//                        Divider().padding(.vertical, 4) // to make divider with space
+                        
+                       SettingsRowView(name: "Developer", content: "mux02 3mk")
+                        SettingsRowView(name: "Developer Site", linkLabel: "CODE X team", linkDestination: "code-xteam.com")
+                        SettingsRowView(name: "SwiftUI", content: "5.0")
+                        SettingsRowView(name: "Compatiblity", content: "14.0")
+                        SettingsRowView(name: "Version", content: "1.1.0")
                     }
                     
                     

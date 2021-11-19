@@ -23,7 +23,7 @@ struct ContentView: View {
                         .padding(.vertical, 4)
                     }
                 }
-                StartButtonView(status: true, text: "رجوع", StrokeCo: Color.black)
+                StartButtonView(status: true, text: "Back", StrokeCo: Color.black)
             } // List
             .navigationTitle("Fruits")
             .navigationBarItems(
@@ -38,20 +38,8 @@ struct ContentView: View {
                     SettingsView(fruit: fruitsData[1])
                 }
             ) //:NAVIGATION ITEM
-        } //:NAVIGATION TITLE
-        
-        
-        
-        
-        //VStack{
-            //Text("Hello, world!")
-              //  .foregroundColor(Color.white)
-              //  .padding()
-                
-            
-            //StartButtonView(status: true)
-        //}
-        //.background(Color.black)
+        } //:NAVIGATION
+        .navigationViewStyle(StackNavigationViewStyle()) // will make sure that the navigation is stack with no extra spaces
         
     }
 }

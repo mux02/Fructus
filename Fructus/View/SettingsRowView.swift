@@ -8,27 +8,30 @@
 import SwiftUI
 
 struct SettingsRowView: View {
-    // MARK: - Properties
-    
+    // Properties:-
     var name: String
-    var content: String? = nil // make this variable optional
+    var content: String? = nil
     var linkLabel: String? = nil
     var linkDestination: String? = nil
     
-    // MARK: - BODY
     
     var body: some View {
-        HStack {
-            Text(name)
-            Spacer()
-            if (content != nil) {
+        VStack {
+            Divider().padding(.vertical, 4) // to make space on the top with divider
+            
+            HStack {
+                Text(name)
+                Spacer()
+                if(content != nil) {
                 Text(content!).foregroundColor(Color.gray)
-            } else if (linkLabel != nil && linkDestination != nil) {
-                Link(linkLabel!, destination: URL(string: "https://\(linkDestination!)")!).foregroundColor(Color.gray)
-                
-                Image(systemName: "arrow.up.right.square").foregroundColor(.pink)
-            } else {
-                EmptyView()
+                } else if (linkLabel != nil && linkDestination != nil) {
+                    Link(linkLabel!,destination: URL(string: "https://\(linkDestination!)")!)
+                        .foregroundColor(Color.gray)
+                    Image(systemName: "arrow.up.right.square").foregroundColor(Color.red)
+                    
+                } else {
+                    EmptyView()
+                }
             }
         }
     }
@@ -37,10 +40,10 @@ struct SettingsRowView: View {
 struct SettingsRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SettingsRowView(name: "Developer", content: "Mohammed Almalki")
-                .previewLayout(.fixed(width: 375, height: 60))
+        SettingsRowView(name: "Developer",content: "Mohammed")
+            .previewLayout(.fixed(width: 375, height: 60))
             .padding()
-            SettingsRowView(name: "Developer", linkLabel: "HomePage", linkDestination: "code-xteam.com")
+        SettingsRowView(name: "Developer", linkLabel: "Developer Site",linkDestination: "code-xteam.com")
                 .preferredColorScheme(.dark)
                 .previewLayout(.fixed(width: 375, height: 60))
                 .padding()

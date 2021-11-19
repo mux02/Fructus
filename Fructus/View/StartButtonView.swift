@@ -18,7 +18,7 @@ struct StartButtonView: View {
     var StrokeCol:Color?
     
     
-    init(status: Bool? = false, ImageSysName:String? = "chevron.forward.square", text:String? = "انقر هنا", StrokeCo:Color? = Color.secondary){
+    init(status: Bool? = false, ImageSysName:String? = "chevron.forward.square", text:String? = "Click here", StrokeCo:Color? = Color.secondary){
         mBool = status
         textBtn = text
         ImageName = ImageSysName
@@ -40,10 +40,10 @@ struct StartButtonView: View {
             .padding(.horizontal, 46)
             .padding(.vertical, 10)
             .background(
-                Capsule().strokeBorder(lineWidth: 1.25)
+                Capsule().strokeBorder(StrokeCol ?? Color.white, lineWidth: 1.25)
             )
         } //Button
-        /*.accentColor(StrokeCol ?? Color("ColorButtonOutline"))*/
+        .accentColor(StrokeCol ?? Color.white)
     }
 }
 
